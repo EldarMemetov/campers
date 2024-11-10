@@ -1,5 +1,5 @@
 import { useState } from "react";
-import CampersItem from "../campersItem/campersItem";
+import CampersItem from "../CampersItem/CampersItem";
 import styles from "./CampersList.module.css";
 import Loading from "../Loading/Loading";
 import { Toaster, toast } from "react-hot-toast";
