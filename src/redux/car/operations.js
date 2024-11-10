@@ -28,6 +28,11 @@ export const fetchAllCampers = createAsyncThunk(
 
       const response = await axios.get(url.toString());
 
+      if (response.data.length === 0) {
+        toast.error("No campers found for your search.");
+        return thunkAPI.rejectWithValue("No campers found");
+      }
+
       return response.data;
     } catch (error) {
       if (error.response && error.response.status === 404) {
@@ -36,7 +41,8 @@ export const fetchAllCampers = createAsyncThunk(
       }
 
       toast.error("Failed to load campers. Please try again.");
-      return thunkAPI.rejectWithValue(error.message);
+      console.error("Error details:", error);
+      return thunkAPI.rejectWithValue(error.message || "An error occurred");
     }
   }
 );
@@ -46,12 +52,12 @@ export const fetchCamperDetails = createAsyncThunk(
   async ({ id }, thunkAPI) => {
     try {
       const response = await axios.get(`/campers/${id}`);
-
       toast.success("Camper details loaded successfully!");
       return response.data;
     } catch (error) {
       toast.error("Failed to load camper details. Please try again later.");
-      return thunkAPI.rejectWithValue(error.message);
+      console.error("Error details:", error);
+      return thunkAPI.rejectWithValue(error.message || "An error occurred");
     }
   }
 );

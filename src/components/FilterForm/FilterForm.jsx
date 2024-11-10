@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import LocationForm from "../LocationForm/LocationForm";
 import FilterOptions from "../FilterOptions/FilterOptions";
 import CarTypeFilter from "../CarTypeFilter/CarTypeFilter";
+import { Toaster, toast } from "react-hot-toast";
 import styles from "./FilterForm.module.css";
 
 export default function FilterForm() {
@@ -12,6 +13,8 @@ export default function FilterForm() {
   const filters = useSelector((state) => state.campers.filters);
 
   const [localFilters, setLocalFilters] = useState(filters);
+  const [loading, setLoading] = useState(false);
+  const [hasFetchedData, setHasFetchedData] = useState(false);
 
   useEffect(() => {
     setLocalFilters(filters);
@@ -32,10 +35,34 @@ export default function FilterForm() {
     setLocalFilters((prev) => ({ ...prev, form }));
   };
 
-  const applyFilters = (event) => {
+  const applyFilters = async (event) => {
     event.preventDefault();
-    dispatch(setFilters(localFilters));
-    dispatch(fetchAllCampers({ filters: localFilters, page: 1 }));
+    setLoading(true);
+
+    try {
+      dispatch(setFilters(localFilters));
+
+      const campers = await dispatch(
+        fetchAllCampers({ filters: localFilters, page: 1 })
+      );
+
+      if (campers.length === 0) {
+        if (!hasFetchedData) {
+          toast.error("No campers found for your search.");
+          setHasFetchedData(true);
+        }
+      } else {
+        if (!hasFetchedData) {
+          toast.success("Filters applied successfully!");
+          setHasFetchedData(true);
+        }
+      }
+    } catch (error) {
+      console.log("Error details:", error);
+      toast.error("Error applying filters. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -49,9 +76,15 @@ export default function FilterForm() {
         onChange={handleEquipmentChange}
       />
       <CarTypeFilter value={localFilters.form} onChange={handleCarTypeChange} />
-      <button type="submit" className={styles.buttonShowMore}>
-        Search
+      <button
+        type="submit"
+        className={styles.buttonShowMore}
+        disabled={loading}
+      >
+        {loading ? "Loading..." : "Search"}{" "}
       </button>
+
+      <Toaster position="top-right" reverseOrder={false} />
     </form>
   );
 }

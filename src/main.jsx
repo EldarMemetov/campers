@@ -6,7 +6,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import { HelmetProvider } from "react-helmet-async";
 import { Toaster } from "react-hot-toast";
 import { store, persistor } from "./redux/store";
-import "./index.css"; // стили
+import "./index.css";
 import App from "./components/App/App";
 
 createRoot(document.getElementById("root")).render(

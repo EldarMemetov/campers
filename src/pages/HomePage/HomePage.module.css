@@ -1,5 +1,6 @@
+/* Home page background and layout */
 .homePage {
-  background-image: url("../../image//homePictures.jpg");
+  background-image: url("../../image/homePictures.jpg"); /* Fallback image */
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -8,8 +9,26 @@
   justify-content: center;
   align-items: center;
   color: white;
+  position: relative;
+  animation: backgroundMove 10s infinite alternate;
 }
 
+@keyframes backgroundMove {
+  0% {
+    background-position: center 0%;
+  }
+  100% {
+    background-position: center 100%;
+  }
+}
+
+@media (min-resolution: 2dppx) {
+  .homePage {
+    background-image: url("../../image/homePictures-x-2.jpg");
+  }
+}
+
+/* Title container */
 .titleContainer {
   display: flex;
   gap: 16px;
@@ -17,16 +36,43 @@
   flex-direction: column;
   margin-right: auto;
   padding-left: 64px;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
 }
+
 .campersTitle {
   font-weight: 600;
   font-size: 48px;
   line-height: 67%;
   color: #f7f7f7;
+  opacity: 0;
+  animation: slideUp 1s ease-out forwards;
 }
+
 .catalogTitle {
   font-weight: 600;
   font-size: 24px;
   line-height: 133%;
   color: #f7f7f7;
+  opacity: 0;
+  animation: slideUp 1.5s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+/* Animation definitions */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
