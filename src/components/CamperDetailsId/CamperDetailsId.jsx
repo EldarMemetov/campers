@@ -1,19 +1,9 @@
-import { useState } from "react";
 import styles from "./CamperDetailsId.module.css";
 import { FaStar } from "react-icons/fa";
 import map from "../../image/svg/map.svg";
+import ModalImage from "react-modal-image";
 
 export default function CamperDetailsId({ camper }) {
-  const [selectedImage, setSelectedImage] = useState(null);
-
-  const toggleModal = (image) => {
-    if (selectedImage === image) {
-      setSelectedImage(null);
-    } else {
-      setSelectedImage(image);
-    }
-  };
-
   const gallery = Array.isArray(camper.gallery) ? camper.gallery : [];
 
   return (
@@ -41,12 +31,12 @@ export default function CamperDetailsId({ camper }) {
       <div className={styles.galleryContainer}>
         {gallery.length > 0 ? (
           gallery.map((image, index) => (
-            <img
-              className={styles.img}
-              src={image.thumb}
+            <ModalImage
+              small={image.thumb}
+              large={image.original}
               alt={`Camper view ${index + 1}`}
+              className={styles.img}
               key={index}
-              onClick={() => toggleModal(image.original)}
             />
           ))
         ) : (
@@ -54,16 +44,6 @@ export default function CamperDetailsId({ camper }) {
         )}
       </div>
       <p className={styles.description}>{camper.description}</p>
-
-      {selectedImage && (
-        <div className={styles.modal} onClick={() => setSelectedImage(null)}>
-          <img
-            src={selectedImage}
-            alt="Selected Camper"
-            className={styles.modalImage}
-          />
-        </div>
-      )}
     </div>
   );
 }
