@@ -1,0 +1,69 @@
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.listContainer > * {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: listItemFadeIn 0.5s forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.listContainer > *:nth-child(n) {
+  animation-delay: calc(0.1s * var(--index));
+}
+
+@keyframes listItemFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.listContainer > *:hover,
+.listContainer > *:focus {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.ButtonLoad {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: #101828;
+  border: 1px solid #dadde1;
+  border-radius: 200px;
+  padding: 16px 32px;
+  width: 145px;
+  height: 56px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.ButtonLoad:hover {
+  background-color: #f2f4f7;
+  border-color: #101828;
+  color: #101828;
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.ButtonLoad:focus {
+  outline: none;
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}

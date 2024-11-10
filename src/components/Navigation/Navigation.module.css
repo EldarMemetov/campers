@@ -1,0 +1,14 @@
+.link {
+  text-decoration: none;
+  color: #101828;
+  padding: 10px;
+}
+
+.active {
+  color: #d84343;
+}
+.textStyle {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+}

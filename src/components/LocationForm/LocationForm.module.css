@@ -1,0 +1,44 @@
+.textLabel {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #6c717b;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.errorMessage {
+  color: red;
+  font-size: 10px;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 42px;
+}
+
+.icon {
+  position: absolute;
+  left: 10px;
+  pointer-events: none;
+}
+
+.inputField {
+  padding-left: 40px;
+  height: 32px;
+  font-size: 16px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  width: 200px;
+  border-radius: 12px;
+  background: #f7f7f7;
+  border: #f7f7f7;
+}

@@ -1,0 +1,133 @@
+.namePrice {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  color: #101828;
+}
+.reviewsRating {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #101828;
+  margin-right: 16px;
+  text-decoration: underline;
+}
+.starRatingLogo {
+  color: #ffc531;
+  margin-right: 4px;
+}
+.nonClickableImage {
+  pointer-events: none;
+}
+.heart {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.location {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+}
+.icon {
+  fill: black;
+  color: black;
+  margin-right: 4px;
+}
+.description {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #475467;
+  margin-bottom: 24px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  width: 600px;
+}
+.features {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: #101828;
+}
+.cashAndName {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.ContainerReviewsRating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.buttonShowMore {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: white;
+  border-radius: 200px;
+  padding: 20px 60px;
+  width: 166px;
+  background: #e44848;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  white-space: nowrap;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.buttonShowMore:hover {
+  background: #d13737;
+}
+
+.campersItemContainer {
+  display: flex;
+  gap: 20px;
+  border: 1px solid #dadde1;
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 32px;
+}
+.imageContainer {
+  flex-shrink: 0;
+}
+
+.camperImage {
+  width: 292px;
+  height: 300px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.campersInformation {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.campersItemList {
+  border: 1px solid #dadde1;
+  border-radius: 20px;
+  padding: 24px;
+  height: 368px;
+}
+.campersFeatures {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.listFeatures {
+  border-radius: 100px;
+  padding: 14px 14px;
+  background-color: #f2f4f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 4px;
+}

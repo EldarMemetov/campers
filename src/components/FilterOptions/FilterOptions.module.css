@@ -1,0 +1,78 @@
+.heading {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: #101828;
+}
+
+.divider {
+  width: 360px;
+  height: 2px;
+  background-color: #dadde1;
+  border: none;
+  margin-bottom: 24px;
+}
+.selected {
+  border: 2px solid red;
+}
+.filterList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.hiddenCheckbox {
+  display: none;
+}
+
+.buttonFilter {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: #101828;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  font-size: inherit;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.2s, transform 0.1s;
+  border-radius: 100px;
+  width: 112px;
+  height: 96px;
+  background-color: #f2f4f7;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 4px;
+  border-radius: 12px;
+  padding: 16px 4px;
+  border: 1px solid #dadde1;
+  display: flex;
+}
+
+.buttonFilter:hover {
+  transform: scale(1.05);
+}
+.selected {
+  border: 1px solid #e44848;
+}
+
+.showMore {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.buttonShowMore {
+  font-size: 16px;
+  color: #101828;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}

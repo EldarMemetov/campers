@@ -1,0 +1,45 @@
+.reviewerInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+.initialCircle {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 60px;
+  background-color: #f2f4f7;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  color: #e44848;
+}
+
+.starRating {
+  display: flex;
+  margin-bottom: 24px;
+}
+
+.starFilled {
+  color: #ffc531;
+}
+
+.starEmpty {
+  color: #ccc;
+}
+.name {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: #101828;
+}
+.comment {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #475467;
+}
